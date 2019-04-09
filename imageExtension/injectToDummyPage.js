@@ -6,6 +6,8 @@ const colorOverlay = (color_data) => {
     const imgTag = 'bw-image-' + img.getAttribute('data-target-bw').split('-')[2] + '.png';
     if(tagsFound.includes(imgTag)) {
       const src = img.src;
+      img.setAttribute("title","");
+      img.classList.add("colored-up");
       img.addEventListener('mouseover', (e) => {
         e.preventDefault();
         e.stopPropagation();

@@ -1,7 +1,13 @@
 body img.grayscale-detect {
   border-color: red;
   border-style: dashed;
-  border-width: 3px;
+  border-width: 1px;
+}
+
+body img.colored-up {
+  border-color: #51ef1e;
+  border-style: dashed;
+  border-width: 1px;
 }
 
 button.bw-button {
