@@ -1,0 +1,25 @@
+{
+  "name": "BW Image Color",
+  "description": "colors B/W images found on a web page",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["background.js","jquery.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["jquery.js", "injectToDummyPage.js"],
+      "css": ["black_white.css"]
+    }
+  ],
+  "permissions":[
+    "activeTab",
+    "storage",
+    "declarativeContent",
+    "contextMenus"],
+  "browser_action": {
+    "default_popup": "popup.html"
+  }
+}
