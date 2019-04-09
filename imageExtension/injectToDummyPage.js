@@ -137,8 +137,9 @@ window.onload = async () => {
   })
   .forEach((bwimage,idx) => {
     bwimage.setAttribute("data-target-BW",`bw-d-${idx}`);
+    $(bwimage).unbind("click");
     if(bwimage.parentNode.nodeName==='A') {
-      $(bwimage).parent().next()[0].onclick = (e) => {
+      $(bwimage).parent().next()[0].addEventListener('click', (e) => {
         console.log('type 1');
         e.stopPropagation();
         e.preventDefault();
@@ -149,9 +150,9 @@ window.onload = async () => {
             idx: idx
           }
         ]);
-      };
+      });
     } else {
-      $(bwimage).next()[0].onclick = (e) => {
+      $(bwimage).next()[0].addEventListener('click', (e) => {
         console.log('type 2');
         e.stopPropagation();
         e.preventDefault();
@@ -162,7 +163,7 @@ window.onload = async () => {
             idx: idx
           }
         ]);
-      };
+      });
     }
   });
 };
