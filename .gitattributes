@@ -1,3 +1,4 @@
 server/colorization/models/colorization_release_v2.caffemodel filter=lfs diff=lfs merge=lfs -text
 server/colorization/models/colorization_release_v1.caffemodel filter=lfs diff=lfs merge=lfs -text
 server/colorization/models/colorization_release_v2_norebal.caffemodel filter=lfs diff=lfs merge=lfs -text
+caffe.tar.gz filter=lfs diff=lfs merge=lfs -text
