@@ -28,3 +28,5 @@ npm start
 - Navigate to any desired Wikipedia webpage and get ready for a new experience
 
 ### Demo Video
+
+please look at this short video to see how the extension works https://youtu.be/dmrRAaevCEA 
