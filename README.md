@@ -1,4 +1,4 @@
-# B-W_Colorization_Extension
+# Black and White Colorization Extension
 
 ### Introduction
 
