@@ -8,12 +8,23 @@ and its accompanying localhost server. Read the instructions below to get starte
 
 ### Instructions to get started
 
-- 
+- clone this repo using
 ```
 git clone https://github.com/himanish-star/B-W_Colorization_Extension.git
-cd B-W_Colorization_Extension/server
+```
+- unzip `caffe.tar.gz` and place it in the path `/home/<user_name>/`. Finally your path to caffe would look something like this
+`/home/<user_name>/caffe`
+- add caffe to your python path
+```
 export PYTHONPATH=/home/<user_name>/caffe/python:$PYTHONPATH
+```
+- start the nodejs server 
+```
+cd B-W_Colorization_Extension/server
 npm install
 npm start
 ```
 - Enter the `developer mode` in chrome extensions and click on `load unpacked` and select `folder: imageExtension`
+- Navigate to any desired Wikipedia webpage and get ready for a new experience
+
+### Demo Video
