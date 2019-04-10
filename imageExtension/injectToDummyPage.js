@@ -20,7 +20,11 @@ const colorOverlay = (color_data) => {
       });
     }
   })
-  window.alert(`Image has been colored`);
+  // window.alert(`Image has been colored`);
+  document.getElementById('bw-complete-note').style.display = 'block';
+  setTimeout(() => {
+    document.getElementById('bw-complete-note').style.display = 'none';
+  }, 2000);
 };
 
 const sendBWImagesToServer = (imageData) => {
@@ -124,12 +128,32 @@ const startFetching = async () => {
   });
   const BWImagesList = await Promise.all(fetcher)
   const tempList = BWImagesList.filter(ele => ele!=='reject');
-  window.alert(`${tempList.length} Black and White images detected in this page`);
-
+  // window.alert(`${tempList.length} Black and White images detected in this page`);
+  const elemNotif = document.getElementById('bw-color-detect');
+  elemNotif.style.display = 'block';
+  elemNotif.querySelector('#bw-color-detect-number').innerText = tempList.length;
+  setTimeout(() => {
+    elemNotif.style.display = 'none';
+  }, 2000);
   return BWImagesList;
 };
 
 window.onload = async () => {
+  const requestNotification = $(`
+    <div id="bw-color-note">
+      started coloring!
+    </div>`);
+  const resultNotification = $(`
+    <div id="bw-complete-note">
+      coloring completed! Hover over the image to view colors :)
+    </div>`);
+  const detectNotification = $(`
+    <div id="bw-color-detect">
+      <span id="bw-color-detect-number"></span> Black and White images detected in this page!
+    </div>`);
+  document.body.appendChild(detectNotification[0]);
+  document.body.appendChild(requestNotification[0]);
+  document.body.appendChild(resultNotification[0]);
   const bwimages = await startFetching();
   bwimages
   .filter(bwimage => {
@@ -143,7 +167,11 @@ window.onload = async () => {
         console.log('type 1');
         e.stopPropagation();
         e.preventDefault();
-        window.alert(`Processing your request`);
+        // window.alert(`Processing your request`);
+        document.getElementById('bw-color-note').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('bw-color-note').style.display = 'none';
+        }, 2000);
         sendBWImagesToServer([
           {
             url: bwimage.src,
@@ -156,7 +184,11 @@ window.onload = async () => {
         console.log('type 2');
         e.stopPropagation();
         e.preventDefault();
-        window.alert(`Processing your request`);
+        // window.alert(`Processing your request`);
+        document.getElementById('bw-color-note').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('bw-color-note').style.display = 'none';
+        }, 2000);
         sendBWImagesToServer([
           {
             url: bwimage.src,
