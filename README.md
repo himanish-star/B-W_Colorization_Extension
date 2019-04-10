@@ -29,4 +29,4 @@ npm start
 
 ### Demo Video
 
-please look at this short video to see how the extension works https://youtu.be/dmrRAaevCEA 
+Please look at this short video to see how the extension works https://youtu.be/dmrRAaevCEA 
