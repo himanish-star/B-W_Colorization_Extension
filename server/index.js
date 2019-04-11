@@ -85,7 +85,7 @@ app.post('/colorImages', async (request, response) => {
       });
 
       process.stderr.on('data', function (data) {
-        // console.log('under progress');
+        console.log(data.toString());
       });
 
       process.stderr.on('end', function() {
