@@ -30,16 +30,22 @@ app.get('/', (req, res) => {
 app.get('/emptyFolder', (req, res) => {
   const directory = ['./color_images'];
 
-  directory.forEach(dir => {
+  try {
+    directory.forEach(dir => {
     fs.readdir(dir, (err, files) => {
-      if (err) throw err;
+      if (err) console.log('overlapped request async');
       for (const file of files) {
         fs.unlink(path.join(dir, file), err => {
-          if (err) throw err;
+          if (err) console.log('overlapped request async inner call');
         });
       }
     });
   });
+  } catch(error) {
+    console.log('overlapped requests causing this error but no issue carry on');
+  }
+
+  
   console.log('folder clean request');
   res.send('Cleaneed color_images folder');
 });
