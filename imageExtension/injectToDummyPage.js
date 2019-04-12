@@ -34,7 +34,8 @@ const sendBWImagesToServer = (imageData) => {
     method: 'POST', // or 'PUT'
     body: JSON.stringify({imageData: imageData}), // data can be `string` or {object}!
     headers:{
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
     }
   })
     .then(res => res.json())

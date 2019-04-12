@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/emptyFolder', (req, res) => {
-  const directory = ['color_images'];
+  const directory = ['./color_images'];
 
   directory.forEach(dir => {
     fs.readdir(dir, (err, files) => {
@@ -45,7 +45,7 @@ app.get('/emptyFolder', (req, res) => {
 });
 
 app.post('/colorImages', async (request, response) => {
-  const directory = ['bw_images'];
+  const directory = ['./bw_images'];
 
   directory.forEach(dir => {
     fs.readdir(dir, (err, files) => {
@@ -102,6 +102,7 @@ app.post('/colorImages', async (request, response) => {
   fs.readdirSync('./color_images/').forEach(file => {
     finalResults.push(file);
   });
+  response.setHeader('Access-Control-Allow-Origin', '*');
   response.send(JSON.stringify({m:finalResults}));
 });
 
